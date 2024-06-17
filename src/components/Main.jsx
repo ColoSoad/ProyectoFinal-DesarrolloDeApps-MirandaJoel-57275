@@ -16,10 +16,13 @@ const Main = () => {
                     <Image source={require('../../assets/3.jpeg')} style={styles.Ofertas} />
                 </View>
             </ScrollView>
-            {/* <View style={styles.envio}>
-                <Feather name="truck" size={24} color="green" style={styles.truck} />
-                <Text style={styles.textEnvio}></Text>
-            </View> */}
+            <View style={styles.envio}>
+                <Feather name="truck" size={18} color="#00A650" style={styles.truck} />
+                <Text style={styles.textEnvio}>
+                    Envío gratis
+                    <Text style={styles.textEnvio2}> en miles de productos desde $23.000</Text>
+                </Text>
+            </View>
         </View>
     );
 };
@@ -40,9 +43,27 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     envio: {
+        height: 30,
+        borderWidth: 1,
+        borderColor: '#D9D9D9',
+        borderRadius: 4,
+        flexDirection: 'row',
         backgroundColor: '#FFFFFF',
-        marginTop: 10,
+        margin: 10,
     },
-    truck: {},
-    textEnvio: {},
+    truck: {
+        paddingTop: 5,
+        paddingLeft: 50,
+    },
+    textEnvio: {
+        fontSize: 12,
+        paddingTop: 6,
+        paddingLeft: 5,
+        color: '#00A650',
+        fontWeight: 'bold',
+    },
+    textEnvio2: {
+        color: '#000',
+        fontWeight: 'normal',
+    },
 });

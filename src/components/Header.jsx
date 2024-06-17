@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         gap: 18,
         position: 'fixed',
+        backgroundColor: '#FFE600',
     },
     menu: {
         color: 'black',
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     },
     cart: {
-        paddingLeft: 25,
+        paddingLeft: 15,
         paddingTop: 5,
     },
     viewHome: {
