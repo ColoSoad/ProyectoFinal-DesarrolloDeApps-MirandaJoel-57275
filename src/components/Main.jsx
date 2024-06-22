@@ -16,11 +16,11 @@ const Main = () => {
                     <Image source={require('../../assets/3.jpeg')} style={styles.Ofertas} />
                 </View>
             </ScrollView>
-            <View style={styles.envio}>
+            <View style={[styles.envio, styles.boxShadow]}>
                 <Feather name="truck" size={18} color="#00A650" style={styles.truck} />
                 <Text style={styles.textEnvio}>
                     Envío gratis
-                    <Text style={styles.textEnvio2}> en miles de productos desde $23.000</Text>
+                    <Text style={styles.textEnvio2}> en miles de productos desde $21.000</Text>
                 </Text>
             </View>
         </View>
@@ -34,15 +34,16 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     scrollView: {
-        paddingLeft: 6,
+        paddingLeft: 0,
     },
     Ofertas: {
-        width: 350,
+        width: 360,
         height: 150,
-        marginRight: 10,
-        borderRadius: 10,
+        marginRight: 6,
+        borderRadius: 4,
     },
     envio: {
+        width: 360,
         height: 30,
         borderWidth: 1,
         borderColor: '#D9D9D9',
@@ -50,7 +51,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#FFFFFF',
         margin: 10,
+        alignSelf: 'center',
     },
+    boxShadow: {
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 5,
+            height: 1,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 4,
+    },
+
     truck: {
         paddingTop: 5,
         paddingLeft: 50,

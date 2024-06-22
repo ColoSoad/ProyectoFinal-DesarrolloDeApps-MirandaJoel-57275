@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/screens/Home';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 
 export default function App() {
