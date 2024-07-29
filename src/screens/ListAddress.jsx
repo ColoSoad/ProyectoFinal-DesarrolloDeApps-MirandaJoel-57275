@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import AddButton from '../components/AddButton';
 import { colors } from '../global/colors';
 import AddressItem from '../components/AddressItem';
@@ -13,7 +13,7 @@ const ListAddress = ({ navigation }) => {
         <AddressItem location={location} navigation={navigation} />
     ) : (
         <View style={styles.container}>
-            <Text style={styles.text}>No location set</Text>
+            <Text style={styles.text}>No hay localización</Text>
             <AddButton title="Set location" onPress={() => navigation.navigate('Location Selector')} />
         </View>
     );

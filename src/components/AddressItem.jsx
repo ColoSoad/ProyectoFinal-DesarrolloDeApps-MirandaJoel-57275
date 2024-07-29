@@ -1,6 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
-import { Ionicons, Feather, EvilIcons } from '@expo/vector-icons';
+import { EvilIcons } from '@expo/vector-icons';
 import React from 'react';
 import { colors } from '../global/colors';
 
@@ -58,8 +57,3 @@ const styles = StyleSheet.create({
         padding: 8,
     },
 });
-// "config": {
-//             "googleMaps": {
-//                 "apiKey": "[AIzaSyDCzVa649UQv96Bw21DGUC6jUQwYfPBG3U]"
-//             }
-//         },

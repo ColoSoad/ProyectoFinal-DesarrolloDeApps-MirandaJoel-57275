@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTapNavigator from './BottomTapNavigator';
 import AuthStackNavigator from './AuthStackNavigator';

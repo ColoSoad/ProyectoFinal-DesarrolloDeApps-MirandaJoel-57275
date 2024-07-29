@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, Pressable, Modal, Image } from 'react-native';
 import React, { useState } from 'react';
-import { Ionicons, Feather, EvilIcons } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../global/colors';
 
 const Header = () => {

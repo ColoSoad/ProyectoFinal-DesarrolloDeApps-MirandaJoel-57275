@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { colors } from '../global/colors';
 import * as ImagePicker from 'expo-image-picker';
@@ -15,7 +15,6 @@ const ImageSelector = ({ navigation }) => {
     const [triggerPostImage, result] = usePostProfileImageMutation();
     const { localId } = useSelector((state) => state.auth.value);
     const { data: imageFromBase } = useGetProfileimageQuery(localId);
-    //console.log(localId)
 
     const pickLibraryImage = async () => {
         try {
@@ -30,15 +29,13 @@ const ImageSelector = ({ navigation }) => {
                     quality: 0.2,
                 });
 
-                console.log(result);
-
                 if (!result.canceled) {
                     const image = `data:image/jpeg;base64,${result.assets[0].base64}`;
                     setImage(image);
                 }
             }
         } catch (error) {
-            console.log(error);
+            Alert.alert(error);
         }
     };
 

@@ -1,5 +1,4 @@
-import { Alert, FlatList, StyleSheet, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { FlatList, StyleSheet, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { colors } from '../global/colors';
 import Search from '../components/Search';

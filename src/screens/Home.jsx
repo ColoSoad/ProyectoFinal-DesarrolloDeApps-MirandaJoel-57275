@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, FlatList, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import CategoryItem from '../components/CategoryItem';
-import { Feather, FontAwesome } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { colors } from '../global/colors';
 import { useGetCategoriesQuery } from '../services/shopServices';
 import Carousel from '../components/Carousel';

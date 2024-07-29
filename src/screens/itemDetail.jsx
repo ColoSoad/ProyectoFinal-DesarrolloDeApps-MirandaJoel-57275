@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { Button, Image, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-
 import { useGetProductByIdQuery } from '../services/shopServices';
 import { useDispatch } from 'react-redux';
 import { addCartItem } from '../features/Cart/CartSlice';
 import { colors } from '../global/colors';
-import Footer from '../components/Footer';
 
 const ItemDetail = ({ route, navigation }) => {
     const { width, height } = useWindowDimensions();
@@ -15,7 +13,7 @@ const ItemDetail = ({ route, navigation }) => {
 
     const dispatch = useDispatch();
 
-    const { data: product, error, isLoading } = useGetProductByIdQuery(idSelected);
+    const { data: product } = useGetProductByIdQuery(idSelected);
 
     useEffect(() => {
         if (width > height) setOrientation('landscape');
@@ -23,7 +21,6 @@ const ItemDetail = ({ route, navigation }) => {
     }, [width, height]);
 
     const handleAddCart = () => {
-        // // agregar al carrito
         dispatch(addCartItem({ ...product, quantity: 1 }));
     };
 

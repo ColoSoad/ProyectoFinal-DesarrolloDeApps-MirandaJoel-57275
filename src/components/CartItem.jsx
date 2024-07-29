@@ -1,4 +1,4 @@
-import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { colors } from '../global/colors';
 import { useDispatch, useSelector } from 'react-redux';

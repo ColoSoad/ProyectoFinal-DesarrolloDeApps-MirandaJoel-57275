@@ -59,6 +59,7 @@ const Login = ({ navigation }) => {
 
     const onSubmit = async () => {
         triggerSignIn({ email, password, returnSecureToken: true });
+
         // VALIDACIONES DE INGRESO DE USUARIO Y CONTRASEÑA
 
         if (!email || !password) {
