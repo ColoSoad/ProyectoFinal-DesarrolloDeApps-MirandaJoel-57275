@@ -1,25 +1,41 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Home from './src/screens/Home';
+import { StyleSheet, SafeAreaView, StatusBar, Platform, Alert } from 'react-native';
 import { useFonts } from 'expo-font';
+import { colors } from './src/global/colors';
+import Navigator from './src/navigation/Navigator';
+import { Provider } from 'react-redux';
+import store from './src/store';
+import { initSQLiteDB } from './src/persistence';
+
+(async () => {
+    try {
+        const response = await initSQLiteDB();
+    } catch (error) {
+        Alert.alert({ errorCreatingDB: error });
+    }
+})();
 
 export default function App() {
     const [fontsLoaded, fontError] = useFonts({
-        nova: require('./assets/fonts/ProximaNovaT-Thin.ttf'),
+        Josefin: require('./assets/fonts/ProximaNovaT-Thin.ttf'),
     });
+
     if (!fontsLoaded && !fontError) {
         return null;
     }
+
     return (
-        <View style={styles.body}>
-            <Home />
-        </View>
+        <SafeAreaView style={styles.container}>
+            <Provider store={store}>
+                <Navigator />
+            </Provider>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    body: {
+    container: {
+        marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         flex: 1,
-        alignItems: 'center',
-        backgroundColor: '#FFE600',
+        backgroundColor: colors.yellowML,
     },
 });
