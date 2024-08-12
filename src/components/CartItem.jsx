@@ -1,12 +1,11 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { colors } from '../global/colors';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { removeCartItem } from '../features/Cart/CartSlice';
 
 const CartItem = ({ cartItem }) => {
     let totalPorProductos = cartItem.price * cartItem.quantity;
-    const cart = useSelector((state) => state.cart.value);
     const dispatch = useDispatch();
 
     const handleRemoveItem = (id) => {

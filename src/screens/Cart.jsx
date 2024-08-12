@@ -1,23 +1,24 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import CartItem from '../components/CartItem';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { usePostOrderMutation } from '../services/shopServices';
 import { colors } from '../global/colors';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { selectUserEmail } from '../features/User/UserSlice';
+import { clearCart } from '../features/Cart/CartSlice';
 const Cart = () => {
     const navigation = useNavigation();
     const { items: CartData, total } = useSelector((state) => state.cart.value);
     const userEmail = useSelector(selectUserEmail);
     const [triggerPostOrder, result] = usePostOrderMutation();
-
+    const dispatch = useDispatch();
     const onConfirmOrder = () => {
         triggerPostOrder({ items: CartData, user: userEmail, total });
         navigation.navigate('Order', { items: CartData, user: userEmail, total });
+        dispatch(clearCart(CartData));
     };
-
-    return (
+    return total ? (
         <View style={styles.container}>
             <View>
                 <FontAwesome5 name="shopping-cart" size={54} color={colors.violetML} style={styles.cart} />
@@ -31,13 +32,23 @@ const Cart = () => {
                 keyExtractor={(producto) => producto.id}
                 style={styles.flatcart}
             />
+
             <View style={styles.totalContainer}>
                 <Text style={styles.total}>Total: $ {total}</Text>
                 <Button
                     color={colors.yellow2ML}
-                    title="                            COMPRAR                            "
+                    title="                            ORDENAR                            "
                     onPress={onConfirmOrder}
                 ></Button>
+            </View>
+        </View>
+    ) : (
+        <View style={styles.container}>
+            <View>
+                <FontAwesome5 name="shopping-cart" size={54} color={colors.violetML} style={styles.cart} />
+            </View>
+            <View style={styles.cartContainerEmply}>
+                <Text style={styles.cartTextEmply}>No hay productos seleccionados al carrito </Text>
             </View>
         </View>
     );
@@ -46,6 +57,13 @@ const Cart = () => {
 export default Cart;
 
 const styles = StyleSheet.create({
+    cartContainerEmply: { justifyContent: 'space-between', flex: 1, backgroundColor: colors.yellowML },
+    cartTextEmply: {
+        textAlign: 'center',
+        margin: 30,
+        flex: 1,
+        fontSize: 32,
+    },
     container: {
         justifyContent: 'space-between',
         flex: 1,

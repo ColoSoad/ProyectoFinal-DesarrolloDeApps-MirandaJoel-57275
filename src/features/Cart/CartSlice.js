@@ -49,19 +49,23 @@ export const cartSlice = createSlice({
             };
         },
 
-        removeFromCart: (state, action) => {
-            const itemId = action.payload;
-            const itemIndex = state.items.findIndex((item) => item.id === itemId);
-            if (itemIndex >= 0) {
-                state.total -= state.items[itemIndex].price * state.items[itemIndex].quantity;
-                state.items.splice(itemIndex, 1);
-            }
+        clearCart: (state, { payload }) => {
+            const total = 0;
+            state.value = {
+                ...state.value,
+                items: [],
+                total,
+            };
         },
 
-        clearCart: (state) => {
-            state.items = [];
-            state.total = 0;
-        },
+        // removeFromCart: (state, action) => {
+        //     const itemId = action.payload;
+        //     const itemIndex = state.items.findIndex((item) => item.id === itemId);
+        //     if (itemIndex >= 0) {
+        //         state.total -= state.items[itemIndex].price * state.items[itemIndex].quantity;
+        //         state.items.splice(itemIndex, 1);
+        //     }
+        // },
     },
 });
 

@@ -10,6 +10,7 @@ import Footer from '../components/Footer';
 
 const Home = ({ navigation }) => {
     const { data: categories } = useGetCategoriesQuery();
+
     return (
         <LinearGradient colors={['#FFE600', '#fff']} style={styles.button} start={{ x: 1, y: 0 }} end={{ x: 1, y: 0.4 }}>
             <View style={styles.flatListContainer}>

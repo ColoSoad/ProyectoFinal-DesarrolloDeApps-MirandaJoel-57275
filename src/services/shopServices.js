@@ -30,6 +30,15 @@ export const shopApi = createApi({
                 body: order,
             }),
         }),
+
+        deleteOrdersByUser: builder.mutation({
+            query: ({ ...order }) => ({
+                url: 'orders.json',
+                method: 'DELETE',
+                body: order,
+            }),
+        }),
+
         getOrdersByUser: builder.query({
             query: (user) => `orders.json?orderBy="user"&equalTo="${user}"`,
             transformResponse: (res) => {
@@ -68,12 +77,12 @@ export const shopApi = createApi({
             }),
             invalidatesTags: ['locationGet'],
         }),
-        deleteOrdersByUser: builder.mutation({
-            query: (userEmail) => ({
-                url: `orders.json?orderBy="user"&equalTo="${userEmail}"`,
-                method: 'DELETE',
-            }),
-        }),
+        // deleteOrdersByUser: builder.mutation({
+        //     query: (userEmail) => ({
+        //         url: `orders.json?orderBy="user"&equalTo="${userEmail}"`,
+        //         method: 'DELETE',
+        //     }),
+        // }),
     }),
 });
 
